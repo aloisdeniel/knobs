@@ -41,6 +41,12 @@ jobs:
 
       # Publish
 
+      - name: 🚀 [Demo] Deploy demo website 
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages 
+          folder: example/build/web/
+
       - name: 🚀 Publish package 
         uses: sakebook/actions-flutter-pub-publisher@v1.4.1
         with:
@@ -48,8 +54,3 @@ jobs:
           flutter_package: true
           skip_test: true
       
-      - name: 🚀 [Demo] Deploy demo website 
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          branch: gh-pages 
-          folder: example/build/web/
