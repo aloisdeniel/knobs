@@ -13,7 +13,7 @@ class UnknownKnob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = KnobsEditorTheme.of(context).disabledField;
-    final value = context.knobs.data.read(property);
+    final value = context.knobs.data.readProperty(property);
     return Container(
       decoration: theme.decoration,
       padding: theme.padding,

@@ -16,13 +16,18 @@ class KnobsData extends Equatable {
     return result as Property<T>;
   }
 
-  T read<T>(Property<T> property) {
+  T readProperty<T>(Property<T> property) {
+    return _values[property] as T;
+  }
+
+  T read<T>(String name) {
+    final property = this.property<T>(name);
     return _values[property] as T;
   }
 
   KnobsData update<T>(Property<T> property, T value) {
     if (property.isReadonly) throw Exception('"${property.name}" is read-only');
-    final oldValue = read(property);
+    final oldValue = readProperty(property);
 
     if (property.filter != null) {
       value = property.filter!(oldValue, value);

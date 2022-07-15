@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knobs/knobs.dart';
+import 'package:knobs/src/data.dart';
 
 import 'documentation.dart';
 import 'controller.dart';
@@ -17,7 +18,7 @@ class Knobs extends StatefulWidget {
 
   final String name;
   final List<Property> properties;
-  final TransitionBuilder? builder;
+  final ValueWidgetBuilder<KnobsData>? builder;
   final Widget? child;
   final DocumentationBuilder? documentation;
 
@@ -73,7 +74,9 @@ class KnobsState extends State<Knobs> {
       controller: controller,
       child: Builder(
         builder: (context) {
-          return widget.builder?.call(context, widget.child) ?? widget.child!;
+          final controller = Knobs.of(context);
+          return widget.builder?.call(context, controller.data, widget.child) ??
+              widget.child!;
         },
       ),
     );

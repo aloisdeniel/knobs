@@ -20,7 +20,7 @@ class KnobsController extends ChangeNotifier {
 
   T read<T>(String name) {
     final property = _data.property<T>(name);
-    return _data.read<T>(property);
+    return _data.readProperty<T>(property);
   }
 
   void write<T>(String name, T value) {

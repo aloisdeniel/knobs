@@ -14,18 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
       builder: (context, child) => KnobsEditor(child: child!),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -78,14 +66,14 @@ class _MyHomePageState extends State<MyHomePage> {
 Text();
 ```''';
           },
-          builder: (context, _) => GestureDetector(
+          builder: (context, data, _) => GestureDetector(
             onTap: () => Knobs.showEditor(context),
             child: Text(
               context.knobs.read<String>('text'),
               style: TextStyle(
-                fontSize: context.knobs.read<double>('fontSize'),
-                fontFamily: context.knobs.read<String>('fontFamily'),
-                fontWeight: context.knobs.read<FontWeight>('fontWeight'),
+                fontSize: data.read<double>('fontSize'),
+                fontFamily: data.read<String>('fontFamily'),
+                fontWeight: data.read<FontWeight>('fontWeight'),
               ),
             ),
           ),
@@ -117,13 +105,13 @@ Text();
           const Property<Color?>('foregroundColor', null),
           const Property<String>('onTap', '(){}', isReadonly: true),
         ],
-        builder: (context, _) => FloatingActionButton(
+        builder: (context, data, _) => FloatingActionButton(
           onPressed: () => Knobs.showEditor(context),
-          tooltip: context.knobs.read<String>('tooltip'),
-          elevation: context.knobs.read<double>('elevation'),
-          foregroundColor: context.knobs.read<Color?>('foregroundColor'),
-          isExtended: context.knobs.read<bool>('isExtended'),
-          clipBehavior: context.knobs.read<Clip>('clipBehavior'),
+          tooltip: data.read<String>('tooltip'),
+          elevation: data.read<double>('elevation'),
+          foregroundColor: data.read<Color?>('foregroundColor'),
+          isExtended: data.read<bool>('isExtended'),
+          clipBehavior: data.read<Clip>('clipBehavior'),
           child: const Icon(Icons.add),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
