@@ -54,7 +54,26 @@ class KnobsIconData {
       ..cubicTo(19.7893, 21.0391, 20, 20.5304, 20, 20)
       ..lineTo(20, 8)
       ..lineTo(14, 2)
-      ..close(),
+      ..close()
+      ..moveTo(14, 2)
+      ..lineTo(14, 8)
+      ..lineTo(20, 8)
+      ..moveTo(16, 13)
+      ..lineTo(8, 13)
+      ..moveTo(16, 17)
+      ..lineTo(8, 17)
+      ..moveTo(10, 9)
+      ..lineTo(9, 9)
+      ..lineTo(8, 9),
+  );
+
+  static final back = KnobsIconData._(
+    Path()
+      ..moveTo(19, 12)
+      ..lineTo(5, 12)
+      ..moveTo(12, 19)
+      ..lineTo(5, 12)
+      ..lineTo(12, 5),
   );
 
   static final chevronDown = KnobsIconData._(

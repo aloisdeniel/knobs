@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knobs/knobs.dart';
 
+import 'documentation.dart';
 import 'controller.dart';
 import 'provider.dart';
 
@@ -11,12 +12,14 @@ class Knobs extends StatefulWidget {
     required this.properties,
     this.builder,
     this.child,
+    this.documentation,
   });
 
   final String name;
   final List<Property> properties;
   final TransitionBuilder? builder;
   final Widget? child;
+  final DocumentationBuilder? documentation;
 
   static void showEditor(BuildContext context) {
     KnobsEditor.show(context, context.knobs);
@@ -42,6 +45,7 @@ class KnobsState extends State<Knobs> {
   late KnobsController controller = KnobsController(
     name: widget.name,
     properties: widget.properties,
+    documentation: widget.documentation,
   );
 
   @override
@@ -57,6 +61,7 @@ class KnobsState extends State<Knobs> {
         controller = KnobsController(
           name: widget.name,
           properties: widget.properties,
+          documentation: widget.documentation,
         );
       });
     }

@@ -14,7 +14,8 @@ class Field extends StatelessWidget {
   static bool isEditSupported(Property property) {
     return property is OptionsProperty ||
         property is Property<String> ||
-        property is Property<bool>;
+        property is Property<bool> ||
+        property is Property<double>;
   }
 
   @override

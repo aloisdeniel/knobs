@@ -68,13 +68,24 @@ class _MyHomePageState extends State<MyHomePage> {
           properties: [
             Property<String>('text', widget.title),
             const Property<double>('fontSize', 12),
+            const Property<String>('fontFamily', 'Roboto'),
+            Property<FontWeight>.enumOptions('fontWeight', FontWeight.values),
           ],
+          documentation: (context, data) {
+            return '''This is a code sample example.
+
+```dart
+Text();
+```''';
+          },
           builder: (context, _) => GestureDetector(
             onTap: () => Knobs.showEditor(context),
             child: Text(
               context.knobs.read<String>('text'),
               style: TextStyle(
                 fontSize: context.knobs.read<double>('fontSize'),
+                fontFamily: context.knobs.read<String>('fontFamily'),
+                fontWeight: context.knobs.read<FontWeight>('fontWeight'),
               ),
             ),
           ),
@@ -102,9 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
           const Property<String>('tooltip', 'Increment'),
           const Property<double>('elevation', 0.5),
           const Property<bool>('isExtended', true),
+          Property<Clip>.enumOptions('clipBehavior', Clip.values),
           const Property<Color?>('foregroundColor', null),
           const Property<String>('onTap', '(){}', isReadonly: true),
-          Property<Clip>.enumOptions('clipBehavior', Clip.values),
         ],
         builder: (context, _) => FloatingActionButton(
           onPressed: () => Knobs.showEditor(context),

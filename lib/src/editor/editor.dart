@@ -106,9 +106,9 @@ class _KnobsEditorState extends State<_KnobsEditor> {
                 child: activeController != null
                     ? KnobsProvider(
                         controller: activeController,
-                        child: const SizedBox(
-                          width: 260,
-                          child: Panel(),
+                        child: SizedBox(
+                          width: theme.panelWidth,
+                          child: const Panel(),
                         ),
                       )
                     : const SizedBox(),

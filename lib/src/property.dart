@@ -53,6 +53,14 @@ class OptionsProperty<T> extends Property<T> {
   });
 
   final List<Option<T>> options;
+
+  Option<T> optionForValue(dynamic value) => options.firstWhere(
+        (x) => x.value == value,
+        orElse: () => Option(
+          value.toString(),
+          value,
+        ),
+      );
 }
 
 class Option<T> {

@@ -26,9 +26,11 @@ class _StringKnobState extends State<DoubleKnob> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final value = context.knobs.data.read(widget.property).toString();
-    if (value != controller.text) {
-      controller.text = value;
+    final oldValue = double.tryParse(controller.text);
+    final newValue = context.knobs.data.read(widget.property);
+
+    if (oldValue == null || oldValue != newValue) {
+      controller.text = newValue.toString();
     }
   }
 
