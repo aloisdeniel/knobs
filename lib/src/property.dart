@@ -1,3 +1,5 @@
+import 'package:preview_knobs/preview_knobs.dart';
+
 typedef ValueUpdateFilter<T> = T Function(T previousValue, T newValue);
 
 class Property<T> {
@@ -8,6 +10,10 @@ class Property<T> {
     this.isReadonly = false,
     this.filter,
   });
+
+  T read(KnobsData data) {
+    return data.readProperty(this);
+  }
 
   const factory Property.options(
     String name,

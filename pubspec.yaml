@@ -1,6 +1,6 @@
 name: preview_knobs
 description: Define custom panel for updating a set of properties.
-version: 0.0.1-alpha
+version: 0.0.1-alpha.4
 homepage: https://github.com/aloisdeniel/preview_knobs
 
 environment:

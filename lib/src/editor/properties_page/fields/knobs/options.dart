@@ -22,7 +22,7 @@ class _OptionsKnobState extends State<OptionsKnob> {
   Widget build(BuildContext context) {
     final theme =
         KnobsEditorTheme.of(context).field(!widget.property.isReadonly);
-    final value = context.preview_knobs.data.readProperty(widget.property);
+    final value = widget.property.read(context.preview_knobs.data);
 
     return ClipRRect(
       borderRadius: (theme.decoration as BoxDecoration)

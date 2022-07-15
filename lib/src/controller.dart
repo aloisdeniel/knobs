@@ -19,12 +19,12 @@ class KnobsController extends ChangeNotifier {
   KnobsData get data => _data;
 
   T read<T>(String name) {
-    final property = _data.property<T>(name);
-    return _data.readProperty<T>(property);
+    final property = _data.getProperty<T>(name);
+    return property.read(data);
   }
 
   void write<T>(String name, T value) {
-    final property = _data.property<T>(name);
+    final property = _data.getProperty<T>(name);
     update(_data.update<T>(property, value));
     notifyListeners();
   }

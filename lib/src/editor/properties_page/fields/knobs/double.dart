@@ -27,7 +27,7 @@ class _StringKnobState extends State<DoubleKnob> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     final oldValue = double.tryParse(controller.text);
-    final newValue = context.preview_knobs.data.readProperty(widget.property);
+    final newValue = widget.property.read(context.preview_knobs.data);
 
     if (oldValue == null || oldValue != newValue) {
       controller.text = newValue.toString();
@@ -38,7 +38,7 @@ class _StringKnobState extends State<DoubleKnob> {
   Widget build(BuildContext context) {
     final theme =
         KnobsEditorTheme.of(context).field(!widget.property.isReadonly);
-    final value = context.preview_knobs.data.readProperty(widget.property);
+    final value = widget.property.read(context.preview_knobs.data);
     return Container(
       decoration: theme.decoration,
       padding: theme.padding,

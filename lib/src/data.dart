@@ -6,7 +6,7 @@ class KnobsData extends Equatable {
 
   final Map<Property, Object?> _values;
 
-  Property<T> property<T>(String name) {
+  Property<T> getProperty<T>(String name) {
     final result = _values.keys.firstWhere(
       (x) => x.name == name,
       orElse: () => throw Exception('No property "$name" found'),
@@ -21,7 +21,7 @@ class KnobsData extends Equatable {
   }
 
   T read<T>(String name) {
-    final property = this.property<T>(name);
+    final property = getProperty<T>(name);
     return _values[property] as T;
   }
 

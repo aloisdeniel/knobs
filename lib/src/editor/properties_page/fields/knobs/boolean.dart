@@ -14,7 +14,7 @@ class BooleanKnob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = KnobsEditorTheme.of(context).field(!property.isReadonly);
-    final value = context.preview_knobs.data.readProperty(property);
+    final value = property.read(context.preview_knobs.data);
     void onValueChanged(bool v) {
       context.preview_knobs.write<bool>(property.name, v);
     }
