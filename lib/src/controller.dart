@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knobs/src/property.dart';
+import 'package:preview_knobs/src/property.dart';
 
 import 'data.dart';
 import 'documentation.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/controller.dart';
-import 'package:knobs/src/editor/doc_page/page.dart';
-import 'package:knobs/src/editor/header/header.dart';
-import 'package:knobs/src/editor/properties_page/page.dart';
-import 'package:knobs/src/editor/theme.dart';
-import 'package:knobs/src/knobs.dart';
+import 'package:preview_knobs/src/controller.dart';
+import 'package:preview_knobs/src/editor/doc_page/page.dart';
+import 'package:preview_knobs/src/editor/header/header.dart';
+import 'package:preview_knobs/src/editor/properties_page/page.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
+import 'package:preview_knobs/src/knobs.dart';
 
 enum PanelPage {
   properties,

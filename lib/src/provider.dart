@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/controller.dart';
-import 'package:knobs/src/data.dart';
+import 'package:preview_knobs/src/controller.dart';
+import 'package:preview_knobs/src/data.dart';
 
 class KnobsProvider extends StatelessWidget {
   const KnobsProvider({

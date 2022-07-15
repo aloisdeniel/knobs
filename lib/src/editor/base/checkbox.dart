@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'icon.dart';
-import 'package:knobs/src/editor/theme.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
 
 class Checkbox extends StatelessWidget {
   const Checkbox({

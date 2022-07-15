@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:knobs/src/editor/theme.dart';
-import 'package:knobs/src/extensions.dart';
-import 'package:knobs/src/property.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
+import 'package:preview_knobs/src/extensions.dart';
+import 'package:preview_knobs/src/property.dart';
 
 class StringKnob extends StatefulWidget {
   const StringKnob({
@@ -25,7 +25,7 @@ class _StringKnobState extends State<StringKnob> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final value = context.knobs.data.readProperty(widget.property);
+    final value = context.preview_knobs.data.readProperty(widget.property);
     if (value != controller.text) {
       controller.text = value;
     }
@@ -35,7 +35,7 @@ class _StringKnobState extends State<StringKnob> {
   Widget build(BuildContext context) {
     final theme =
         KnobsEditorTheme.of(context).field(!widget.property.isReadonly);
-    final value = context.knobs.data.readProperty(widget.property);
+    final value = context.preview_knobs.data.readProperty(widget.property);
     return Container(
       decoration: theme.decoration,
       padding: theme.padding,
@@ -46,7 +46,8 @@ class _StringKnobState extends State<StringKnob> {
           controller: controller,
           onChanged: (newValue) {
             if (newValue != value) {
-              context.knobs.write<String>(widget.property.name, newValue);
+              context.preview_knobs
+                  .write<String>(widget.property.name, newValue);
             }
           },
           enabled: !widget.property.isReadonly,

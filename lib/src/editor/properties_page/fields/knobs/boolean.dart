@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/editor/base/checkbox.dart';
-import 'package:knobs/src/editor/theme.dart';
-import 'package:knobs/src/extensions.dart';
-import 'package:knobs/src/property.dart';
+import 'package:preview_knobs/src/editor/base/checkbox.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
+import 'package:preview_knobs/src/extensions.dart';
+import 'package:preview_knobs/src/property.dart';
 
 class BooleanKnob extends StatelessWidget {
   const BooleanKnob({
@@ -14,9 +14,9 @@ class BooleanKnob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = KnobsEditorTheme.of(context).field(!property.isReadonly);
-    final value = context.knobs.data.readProperty(property);
+    final value = context.preview_knobs.data.readProperty(property);
     void onValueChanged(bool v) {
-      context.knobs.write<bool>(property.name, v);
+      context.preview_knobs.write<bool>(property.name, v);
     }
 
     return GestureDetector(

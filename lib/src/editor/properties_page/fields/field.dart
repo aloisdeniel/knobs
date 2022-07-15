@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/knobs.dart';
-import 'package:knobs/src/editor/properties_page/fields/knobs/knob.dart';
-import 'package:knobs/src/editor/theme.dart';
+import 'package:preview_knobs/preview_knobs.dart';
+import 'package:preview_knobs/src/editor/properties_page/fields/knobs/knob.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
 
 class Field extends StatelessWidget {
   const Field({

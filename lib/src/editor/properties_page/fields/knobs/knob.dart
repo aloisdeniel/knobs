@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/property.dart';
+import 'package:preview_knobs/src/property.dart';
 
 import 'double.dart';
 import 'options.dart';

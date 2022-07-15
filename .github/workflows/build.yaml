@@ -37,7 +37,7 @@ jobs:
 
       - name: 🔧 [Demo] Build demo tests 
         working-directory: example
-        run: flutter build web --base-href /knobs/
+        run: flutter build web --base-href /preview_knobs/
 
       # Publish
 

@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:knobs/knobs.dart';
-import 'package:knobs/src/controller.dart';
-import 'package:knobs/src/editor/theme.dart';
+import 'package:preview_knobs/preview_knobs.dart';
+import 'package:preview_knobs/src/controller.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
 
 class DocPage extends StatelessWidget {
   const DocPage({
@@ -20,8 +20,9 @@ class DocPage extends StatelessWidget {
       selectable: true,
       padding: mediaQuery.padding.copyWith(top: 0) + const EdgeInsets.all(12),
       styleSheet: theme.docStyle,
-      data: controller.documentation?.call(context, context.knobs.data) ??
-          'No documentation',
+      data:
+          controller.documentation?.call(context, context.preview_knobs.data) ??
+              'No documentation',
     );
   }
 }

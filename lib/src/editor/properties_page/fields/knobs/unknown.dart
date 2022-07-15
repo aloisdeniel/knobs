@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/editor/theme.dart';
-import 'package:knobs/src/extensions.dart';
-import 'package:knobs/src/property.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
+import 'package:preview_knobs/src/extensions.dart';
+import 'package:preview_knobs/src/property.dart';
 
 class UnknownKnob extends StatelessWidget {
   const UnknownKnob({
@@ -13,7 +13,7 @@ class UnknownKnob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = KnobsEditorTheme.of(context).disabledField;
-    final value = context.knobs.data.readProperty(property);
+    final value = context.preview_knobs.data.readProperty(property);
     return Container(
       decoration: theme.decoration,
       padding: theme.padding,

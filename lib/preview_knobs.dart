@@ -1,4 +1,4 @@
-library knobs;
+library preview_knobs;
 
 export 'src/knobs.dart';
 export 'src/property.dart';

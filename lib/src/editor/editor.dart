@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/controller.dart';
-import 'package:knobs/src/editor/panel.dart/panel.dart';
-import 'package:knobs/src/editor/window/window.dart';
-import 'package:knobs/src/provider.dart';
+import 'package:preview_knobs/src/controller.dart';
+import 'package:preview_knobs/src/editor/panel.dart/panel.dart';
+import 'package:preview_knobs/src/editor/window/window.dart';
+import 'package:preview_knobs/src/provider.dart';
 
 import 'theme.dart';
 

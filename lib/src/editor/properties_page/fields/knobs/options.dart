@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/editor/base/icon.dart';
-import 'package:knobs/src/editor/theme.dart';
-import 'package:knobs/src/extensions.dart';
-import 'package:knobs/src/property.dart';
+import 'package:preview_knobs/src/editor/base/icon.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
+import 'package:preview_knobs/src/extensions.dart';
+import 'package:preview_knobs/src/property.dart';
 
 class OptionsKnob extends StatefulWidget {
   const OptionsKnob({
@@ -22,7 +22,7 @@ class _OptionsKnobState extends State<OptionsKnob> {
   Widget build(BuildContext context) {
     final theme =
         KnobsEditorTheme.of(context).field(!widget.property.isReadonly);
-    final value = context.knobs.data.readProperty(widget.property);
+    final value = context.preview_knobs.data.readProperty(widget.property);
 
     return ClipRRect(
       borderRadius: (theme.decoration as BoxDecoration)
@@ -38,11 +38,11 @@ class _OptionsKnobState extends State<OptionsKnob> {
                   value: value,
                   property: widget.property,
                   onValueChanged: (newValue) {
-                    final data = context.knobs.data.update(
+                    final data = context.preview_knobs.data.update(
                       widget.property,
                       newValue,
                     );
-                    context.knobs.update(data);
+                    context.preview_knobs.update(data);
                     isOpened = false;
                   },
                 )

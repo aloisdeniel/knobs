@@ -1,4 +1,4 @@
-# Knobs
+# Preview Knobs
 
 Define custom panel for updating a set of properties.
 
@@ -30,7 +30,7 @@ Knobs(
     builder: (context, _) => GestureDetector(
         onTap: () => Knobs.showEditor(context),
         child: Text(
-                // `context.knobs.read<String>('text')` can also be used for children widgets
+                // `context.preview_knobs.read<String>('text')` can also be used for children widgets
                 data.read<String>('text'), 
                 style: TextStyle(
                 fontSize: data.read<double>('fontSize'),

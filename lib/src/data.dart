@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:knobs/src/property.dart';
+import 'package:preview_knobs/src/property.dart';
 
 class KnobsData extends Equatable {
   const KnobsData(this._values);

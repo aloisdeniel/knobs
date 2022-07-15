@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/editor/panel.dart/panel.dart';
+import 'package:preview_knobs/src/editor/panel.dart/panel.dart';
 
 import '../theme.dart';
 

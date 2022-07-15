@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knobs/knobs.dart';
+import 'package:preview_knobs/preview_knobs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       builder: (context, child) => KnobsEditor(child: child!),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Preview Knobs'),
     );
   }
 }
@@ -69,7 +69,7 @@ Text();
           builder: (context, data, _) => GestureDetector(
             onTap: () => Knobs.showEditor(context),
             child: Text(
-              context.knobs.read<String>('text'),
+              context.preview_knobs.read<String>('text'),
               style: TextStyle(
                 fontSize: data.read<double>('fontSize'),
                 fontFamily: data.read<String>('fontFamily'),

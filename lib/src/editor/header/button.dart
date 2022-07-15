@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/editor/base/icon.dart';
-import 'package:knobs/src/editor/theme.dart';
+import 'package:preview_knobs/src/editor/base/icon.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
 
 class HeaderButton extends StatelessWidget {
   const HeaderButton({

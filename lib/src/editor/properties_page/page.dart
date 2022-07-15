@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:knobs/src/editor/properties_page/fields/field.dart';
-import 'package:knobs/src/editor/theme.dart';
-import 'package:knobs/src/knobs.dart';
+import 'package:preview_knobs/src/editor/properties_page/fields/field.dart';
+import 'package:preview_knobs/src/editor/theme.dart';
+import 'package:preview_knobs/src/knobs.dart';
 
 class PropertiesPage extends StatelessWidget {
   const PropertiesPage({
