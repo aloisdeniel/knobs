@@ -63,7 +63,6 @@ class _OptionsKnobState extends State<OptionsKnob> {
 
 class _Closed extends StatelessWidget {
   const _Closed({
-    super.key,
     required this.value,
     required this.property,
     required this.onTap,
@@ -103,7 +102,6 @@ class _Closed extends StatelessWidget {
 
 class _Opened extends StatelessWidget {
   const _Opened({
-    super.key,
     required this.value,
     required this.property,
     required this.onValueChanged,
@@ -137,7 +135,6 @@ class _Opened extends StatelessWidget {
 
 class _OpenedTile extends StatelessWidget {
   const _OpenedTile({
-    super.key,
     required this.name,
     required this.property,
     required this.isSelected,

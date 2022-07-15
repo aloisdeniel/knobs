@@ -3,7 +3,6 @@ import 'package:knobs/knobs.dart';
 import 'package:knobs/src/editor/base/icon.dart';
 import 'package:knobs/src/editor/panel.dart/panel.dart';
 import 'package:knobs/src/editor/theme.dart';
-import 'package:knobs/src/knobs.dart';
 
 import 'button.dart';
 
