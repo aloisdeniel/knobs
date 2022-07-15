@@ -42,7 +42,11 @@ jobs:
       # Publish
 
       - name: 🚀 Publish package 
-        run: flutter packages get
+        uses: sakebook/actions-flutter-pub-publisher@v1.4.1
+        with:
+          credential: ${{ secrets.PUB_CREDENTIAL_JSON }}
+          flutter_package: true
+          skip_test: true
       
       - name: 🚀 [Demo] Deploy demo website 
         uses: JamesIves/github-pages-deploy-action@v4.3.3
