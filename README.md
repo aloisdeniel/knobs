@@ -18,28 +18,44 @@ MaterialApp(
 Define a customizable area as a `Knobs` widget instance :
 
 ```dart
-Knobs(
-    name: 'Title',
-    properties: [
-        Property<String>('text', widget.title),
-        const Property<double>('fontSize', 12),
-        const Property<String>('fontFamily', 'Roboto'),
-        Property<FontWeight>.enumOptions('fontWeight', FontWeight.values),
-    ],
-    documentation: (context, data) => '''This is a doc example.''',
-    builder: (context, _) => GestureDetector(
+class PreviewText extends StatelessWidget {
+  const PreviewText({
+    super.key,
+  });
+
+  // Define editable properties with their default value
+  static const text = Property<String>('text', 'Preview Knobs');
+  static const fontSize = Property<double>('fontSize', 12);
+  static final fontWeight = Property<FontWeight>.enumOptions('fontWeight', FontWeight.values);
+
+  @override
+  Widget build(BuildContext context) {
+    return Knobs(
+      name: 'Text',
+      // Registers the properties
+      properties: [
+        text,
+        fontSize,
+        fontWeight,
+      ],
+      // Write dynamic documentation if you wish
+      documentation: (context, data) {
+        return '''This is a code sample example.\n\n```dart\nText();\n```''';
+      },
+      // Read the property values from data
+      builder: (context, data, _) => GestureDetector(
         onTap: () => Knobs.showEditor(context),
         child: Text(
-                // `context.preview_knobs.read<String>('text')` can also be used for children widgets
-                data.read<String>('text'), 
-                style: TextStyle(
-                fontSize: data.read<double>('fontSize'),
-                fontFamily: data.read<String>('fontFamily'),
-                fontWeight: data.read<FontWeight>('fontWeight'),
-            ),
+        text.read(data),
+          style: TextStyle(
+            fontSize: fontSize.read(data),
+            fontWeight: fontWeight.read(data),
+          ),
         ),
-    ),
-),
+      ),
+    );
+  }
+}
 ```
 
 ## Usage

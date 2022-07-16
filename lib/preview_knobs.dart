@@ -1,5 +1,7 @@
 library preview_knobs;
 
+export 'package:flutter_markdown/flutter_markdown.dart' show MarkdownStyleSheet;
+
 export 'src/editor/editor.dart';
 export 'src/editor/theme.dart';
 export 'src/controller.dart';

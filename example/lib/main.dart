@@ -51,70 +51,98 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Knobs(
-          name: 'Title',
-          properties: [
-            Property<String>('text', widget.title),
-            const Property<double>('fontSize', 12),
-            const Property<String>('fontFamily', 'Roboto'),
-            Property<FontWeight>.enumOptions('fontWeight', FontWeight.values),
-          ],
-          documentation: (context, data) {
-            return '''This is a code sample example.
-
-```dart
-Text();
-```''';
-          },
-          builder: (context, data, _) => GestureDetector(
-            onTap: () => Knobs.showEditor(context),
-            child: Text(
-              context.preview_knobs.read<String>('text'),
-              style: TextStyle(
-                fontSize: data.read<double>('fontSize'),
-                fontFamily: data.read<String>('fontFamily'),
-                fontWeight: data.read<FontWeight>('fontWeight'),
-              ),
-            ),
-          ),
-        ),
+        title: const PreviewText(),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+          children: const <Widget>[
             Text(
-              '0',
-              style: Theme.of(context).textTheme.headline4,
+              'Tap on the title or floating action button to open the editor.',
             ),
           ],
         ),
       ),
-      floatingActionButton: Knobs(
-        name: 'FloatingButton',
-        properties: [
-          const Property<String>('tooltip', 'Increment'),
-          const Property<double>('elevation', 0.5),
-          const Property<bool>('isExtended', true),
-          Property<Clip>.enumOptions('clipBehavior', Clip.values),
-          const Property<Color?>('foregroundColor', null),
-          const Property<String>('onTap', '(){}', isReadonly: true),
-        ],
-        builder: (context, data, _) => FloatingActionButton(
-          onPressed: () => Knobs.showEditor(context),
-          tooltip: data.read<String>('tooltip'),
-          elevation: data.read<double>('elevation'),
-          foregroundColor: data.read<Color?>('foregroundColor'),
-          isExtended: data.read<bool>('isExtended'),
-          clipBehavior: data.read<Clip>('clipBehavior'),
-          child: const Icon(Icons.add),
+      floatingActionButton: const PreviewFloatingActionButton(),
+    );
+  }
+}
+
+class PreviewText extends StatelessWidget {
+  const PreviewText({
+    super.key,
+  });
+
+  static const text = Property<String>('text', 'Preview Knobs');
+  static const fontSize = Property<double>('fontSize', 12);
+  static const fontFamily = Property<String>('fontFamily', 'Roboto');
+  static final fontWeight =
+      Property<FontWeight>.enumOptions('fontWeight', FontWeight.values);
+
+  @override
+  Widget build(BuildContext context) {
+    return Knobs(
+      name: 'Text',
+      properties: [
+        text,
+        fontSize,
+        fontFamily,
+        fontWeight,
+      ],
+      documentation: (context, data) {
+        return '''This is a code sample example.\n\n```dart\nText();\n```''';
+      },
+      builder: (context, data, _) => GestureDetector(
+        onTap: () => Knobs.showEditor(context),
+        child: Text(
+          text.read(data),
+          style: TextStyle(
+            fontSize: fontSize.read(data),
+            fontFamily: fontFamily.read(data),
+            fontWeight: fontWeight.read(data),
+          ),
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+    );
+  }
+}
+
+class PreviewFloatingActionButton extends StatelessWidget {
+  const PreviewFloatingActionButton({
+    super.key,
+  });
+
+  static const tooltip = Property<String>('tooltip', 'Increment');
+  static const elevation = Property<double>('elevation', 0.5);
+  static const isExtended = Property<bool>('isExtended', true);
+  static final clipBehavior =
+      Property<Clip>.enumOptions('clipBehavior', Clip.values);
+  static const foregroundColor = Property<Color?>('foregroundColor', null);
+  static const onTap = Property<String>('onTap', '(){}', isReadonly: true);
+
+  @override
+  Widget build(BuildContext context) {
+    return Knobs(
+      name: 'FloatingActionButton',
+      properties: [
+        tooltip,
+        elevation,
+        isExtended,
+        clipBehavior,
+        foregroundColor,
+        onTap,
+      ],
+      builder: (context, data, _) => FloatingActionButton(
+        onPressed: () => Knobs.showEditor(context),
+        tooltip: tooltip.read(data),
+        elevation: elevation.read(data),
+        foregroundColor: foregroundColor.read(data),
+        isExtended: isExtended.read(data),
+        clipBehavior: clipBehavior.read(data),
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
