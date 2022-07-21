@@ -22,14 +22,14 @@ class Property<T> {
     String description,
   }) = OptionsProperty<T>;
 
-  factory Property.enumOptions(String name, List<T> values) {
+  factory Property.enumOptions(String name, List<T> values, {T? initialValue}) {
     return Property<T>.options(
       name,
-      values.first,
+      initialValue ?? values.first,
       options: [
         ...values.map(
           (v) => Option<T>(
-            v.toString().substring('$T.'.length),
+            v.toString().split('.').last,
             v,
           ),
         ),
