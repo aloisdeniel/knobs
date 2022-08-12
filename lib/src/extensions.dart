@@ -4,7 +4,7 @@ import 'package:preview_knobs/src/controller.dart';
 import 'provider.dart';
 
 extension KnobsExtensions on BuildContext {
-  KnobsController get preview_knobs {
+  KnobsController get knobs {
     return KnobsProvider.of(this);
   }
 }

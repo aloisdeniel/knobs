@@ -14,9 +14,9 @@ class BooleanKnob extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = KnobsEditorTheme.of(context).field(!property.isReadonly);
-    final value = property.read(context.preview_knobs.data);
+    final value = property.read(context.knobs.data);
     void onValueChanged(bool v) {
-      context.preview_knobs.write<bool>(property.name, v);
+      context.knobs.write<bool>(property.name, v);
     }
 
     return GestureDetector(

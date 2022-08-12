@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:preview_knobs/preview_knobs.dart';
 import 'package:preview_knobs/src/editor/base/icon.dart';
 import 'package:preview_knobs/src/editor/panel.dart/panel.dart';
-import 'package:preview_knobs/src/editor/theme.dart';
 
 import 'button.dart';
 
@@ -75,7 +74,7 @@ class Header extends StatelessWidget {
             ),
           ),
           if (page == PanelPage.properties &&
-              context.preview_knobs.documentation != null) ...[
+              context.knobs.documentation != null) ...[
             HeaderButton(
               icon: KnobsIconData.doc,
               onTap: onOpenDoc,

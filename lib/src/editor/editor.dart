@@ -6,7 +6,7 @@ import 'package:preview_knobs/src/provider.dart';
 
 import 'theme.dart';
 
-class KnobsEditor extends StatelessWidget {
+class KnobsEditor extends StatefulWidget {
   const KnobsEditor({
     super.key,
     required this.child,
@@ -25,31 +25,10 @@ class KnobsEditor extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Overlay(
-      initialEntries: [
-        OverlayEntry(
-          builder: (context) => _KnobsEditor(
-            child: child,
-          ),
-        ),
-      ],
-    );
-  }
+  State<KnobsEditor> createState() => _KnobsEditorState();
 }
 
-class _KnobsEditor extends StatefulWidget {
-  const _KnobsEditor({
-    required this.child,
-  });
-
-  final Widget child;
-
-  @override
-  State<_KnobsEditor> createState() => _KnobsEditorState();
-}
-
-class _KnobsEditorState extends State<_KnobsEditor> {
+class _KnobsEditorState extends State<KnobsEditor> {
   KnobsController? _activeController;
   final childKey = GlobalKey();
 

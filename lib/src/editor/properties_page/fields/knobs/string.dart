@@ -25,7 +25,7 @@ class _StringKnobState extends State<StringKnob> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final value = widget.property.read(context.preview_knobs.data);
+    final value = widget.property.read(context.knobs.data);
     if (value != controller.text) {
       controller.text = value;
     }
@@ -35,7 +35,7 @@ class _StringKnobState extends State<StringKnob> {
   Widget build(BuildContext context) {
     final theme =
         KnobsEditorTheme.of(context).field(!widget.property.isReadonly);
-    final value = widget.property.read(context.preview_knobs.data);
+    final value = widget.property.read(context.knobs.data);
     return Container(
       decoration: theme.decoration,
       padding: theme.padding,
@@ -46,8 +46,7 @@ class _StringKnobState extends State<StringKnob> {
           controller: controller,
           onChanged: (newValue) {
             if (newValue != value) {
-              context.preview_knobs
-                  .write<String>(widget.property.name, newValue);
+              context.knobs.write<String>(widget.property.name, newValue);
             }
           },
           enabled: !widget.property.isReadonly,

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:preview_knobs/preview_knobs.dart';
-import 'package:preview_knobs/src/data.dart';
-
-import 'documentation.dart';
-import 'controller.dart';
 import 'provider.dart';
 
 class Knobs extends StatefulWidget {
@@ -23,7 +19,7 @@ class Knobs extends StatefulWidget {
   final DocumentationBuilder? documentation;
 
   static void showEditor(BuildContext context) {
-    KnobsEditor.show(context, context.preview_knobs);
+    KnobsEditor.show(context, context.knobs);
   }
 
   static void hideEditor(BuildContext context) {
